@@ -34,7 +34,6 @@ class FUser {
     let loginMethod: String
     
     //MARK: Initializers
-    
     init(_objectId: String, _pushId: String?, _createdAt: Date, _updatedAt: Date, _email: String, _firstname: String, _lastname: String, _avatar: String = "", _loginMethod: String, _phoneNumber: String, _city: String, _country: String) {
         
         objectId = _objectId
@@ -60,8 +59,6 @@ class FUser {
         contacts = []
         
     }
-    
-    
     
     init(_dictionary: NSDictionary) {
         
@@ -177,7 +174,6 @@ class FUser {
     
     
     //MARK: Login function
-    
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (firUser, error) in
@@ -193,13 +189,11 @@ class FUser {
                 fetchCurrentUserFromFirestore(userId: firUser!.user.uid)
                 completion(error)
             }
-            
         })
-        
     }
     
-    //MARK: Register functions
     
+    //MARK: Register functions
     class func registerUserWith(email: String, password: String, firstName: String, lastName: String, avatar: String = "", completion: @escaping (_ error: Error?) -> Void ) {
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
@@ -222,7 +216,6 @@ class FUser {
     }
     
     //phoneNumberRegistration
-    
     class func registerUserWith(phoneNumber: String, verificationCode: String, verificationId: String!, completion: @escaping (_ error: Error?, _ shouldLogin: Bool) -> Void) {
         
         
@@ -312,7 +305,7 @@ class FUser {
 func saveUserToFirestore(fUser: FUser) {
     reference(.User).document(fUser.objectId).setData(userDictionaryFrom(user: fUser) as! [String : Any]) { (error) in
         
-        print("error is \(error?.localizedDescription)")
+        print("error is \(error?.localizedDescription ?? "")")
     }
 }
 
@@ -336,7 +329,7 @@ func fetchCurrentUserFromFirestore(userId: String) {
         if snapshot.exists {
             print("updated current users param")
             
-            UserDefaults.standard.setValue(snapshot.data() as! NSDictionary, forKeyPath: kCURRENTUSER)
+            UserDefaults.standard.setValue(snapshot.data()! as NSDictionary, forKeyPath: kCURRENTUSER)
             UserDefaults.standard.synchronize()
             
         }
@@ -389,7 +382,7 @@ func getUsersFromFirestore(withIds: [String], completion: @escaping (_ usersArra
             
             if snapshot.exists {
                 
-                let user = FUser(_dictionary: snapshot.data() as! NSDictionary)
+                let user = FUser(_dictionary: snapshot.data()! as NSDictionary)
                 count += 1
                 
                 //dont add if its current user
