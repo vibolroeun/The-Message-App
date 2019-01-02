@@ -13,9 +13,14 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     var indexPath: IndexPath!
+    let tapGestureRecognizer = UITapGestureRecognizer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        tapGestureRecognizer.addTarget(self, action: #selector(self.avatarTap))
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.addGestureRecognizer(tapGestureRecognizer)
         
     }
 
@@ -23,6 +28,10 @@ class UsersTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         
+    }
+    
+    @objc func avatarTap(){
+        print("avatar at \(indexPath)")
     }
     
     func generateCellWith(fUser: FUser, indexPath: IndexPath) {

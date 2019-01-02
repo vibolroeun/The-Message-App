@@ -20,6 +20,8 @@
 		17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */; };
 		17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */; };
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
+		17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E021DD00A000B29D08 /* UsersTableViewController.swift */; };
+		17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E321DD13BB00B29D08 /* ChatsViewController.swift */; };
 		17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */; };
 		17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
+		17E293E021DD00A000B29D08 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		17E293E321DD13BB00B29D08 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		4B647DBDD0BBB144B4652120 /* Pods-The Message App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				1715F2B321D8B1BB00F8B20D /* LaunchScreen.storyboard */,
 				1715F2A921D8B1B900F8B20D /* WelcomeViewController.swift */,
 				17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */,
+				17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */,
 				1715F2AB21D8B1B900F8B20D /* Main.storyboard */,
 				1715F2C121D8C31B00F8B20D /* Supporting Files */,
 				1715F2C021D8C30F00F8B20D /* Controllers */,
@@ -95,7 +100,8 @@
 				1715F2BE21D8C30200F8B20D /* Models */,
 				1715F2B121D8B1BB00F8B20D /* Assets.xcassets */,
 				17DDB41021DB50CE00B0343F /* Helpers */,
-				17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */,
+				17E293E021DD00A000B29D08 /* UsersTableViewController.swift */,
+				17E293E321DD13BB00B29D08 /* ChatsViewController.swift */,
 			);
 			path = "The Message App";
 			sourceTree = "<group>";
@@ -342,10 +348,12 @@
 				1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */,
 				1715F2B021D8B1B900F8B20D /* The_Message_App.xcdatamodeld in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
+				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
 				1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
+				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
