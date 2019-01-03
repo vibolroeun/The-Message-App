@@ -19,6 +19,7 @@
 		17A2C2CE21DA967500AAC0A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CD21DA967500AAC0A0 /* Constants.swift */; };
 		17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */; };
 		17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */; };
+		17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */; };
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
 		17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E021DD00A000B29D08 /* UsersTableViewController.swift */; };
 		17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E321DD13BB00B29D08 /* ChatsViewController.swift */; };
@@ -41,6 +42,7 @@
 		17A2C2CD21DA967500AAC0A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		17E293E021DD00A000B29D08 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		17E293E321DD13BB00B29D08 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -83,55 +85,48 @@
 		1715F2A621D8B1B900F8B20D /* The Message App */ = {
 			isa = PBXGroup;
 			children = (
+				17DDB41021DB50CE00B0343F /* Helpers */,
 				17F0CDA721DCAC5C0034CA47 /* Cells */,
 				17DDB41121DB510D00B0343F /* Classes */,
+				17D011A321DDFE2500B57DBA /* SecondViews */,
+				17D011A221DDFDE800B57DBA /* MainViews */,
+				17D011A121DDFD9300B57DBA /* WelcomeViews */,
 				1715F2B621D8B1BB00F8B20D /* Info.plist */,
 				1715F2AE21D8B1B900F8B20D /* The_Message_App.xcdatamodeld */,
 				1715F2A721D8B1B900F8B20D /* AppDelegate.swift */,
 				1715F2BC21D8B45000F8B20D /* GoogleService-Info.plist */,
 				1715F2B321D8B1BB00F8B20D /* LaunchScreen.storyboard */,
-				1715F2A921D8B1B900F8B20D /* WelcomeViewController.swift */,
-				17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */,
-				17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */,
 				1715F2AB21D8B1B900F8B20D /* Main.storyboard */,
-				1715F2C121D8C31B00F8B20D /* Supporting Files */,
-				1715F2C021D8C30F00F8B20D /* Controllers */,
-				1715F2BF21D8C30900F8B20D /* Views */,
-				1715F2BE21D8C30200F8B20D /* Models */,
 				1715F2B121D8B1BB00F8B20D /* Assets.xcassets */,
-				17DDB41021DB50CE00B0343F /* Helpers */,
-				17E293E021DD00A000B29D08 /* UsersTableViewController.swift */,
-				17E293E321DD13BB00B29D08 /* ChatsViewController.swift */,
 			);
 			path = "The Message App";
 			sourceTree = "<group>";
 		};
-		1715F2BE21D8C30200F8B20D /* Models */ = {
+		17D011A121DDFD9300B57DBA /* WelcomeViews */ = {
 			isa = PBXGroup;
 			children = (
+				1715F2A921D8B1B900F8B20D /* WelcomeViewController.swift */,
+				17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */,
 			);
-			path = Models;
+			path = WelcomeViews;
 			sourceTree = "<group>";
 		};
-		1715F2BF21D8C30900F8B20D /* Views */ = {
+		17D011A221DDFDE800B57DBA /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */,
+				17E293E321DD13BB00B29D08 /* ChatsViewController.swift */,
 			);
-			path = Views;
+			path = MainViews;
 			sourceTree = "<group>";
 		};
-		1715F2C021D8C30F00F8B20D /* Controllers */ = {
+		17D011A321DDFE2500B57DBA /* SecondViews */ = {
 			isa = PBXGroup;
 			children = (
+				17E293E021DD00A000B29D08 /* UsersTableViewController.swift */,
+				17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		1715F2C121D8C31B00F8B20D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Supporting Files";
+			path = SecondViews;
 			sourceTree = "<group>";
 		};
 		17DDB41021DB50CE00B0343F /* Helpers */ = {
@@ -354,6 +349,7 @@
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
+				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
