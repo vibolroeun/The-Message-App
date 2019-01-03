@@ -76,6 +76,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
         
         if searchController.isActive && searchController.searchBar.text != "" {
             user = filteredUsers[indexPath.row]
+            
         }else{
             
             let sectionTitle = self.sectionTitleList[indexPath.section]
@@ -115,6 +116,23 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
         return index
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+            
+        }else{
+            
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUsersGroupped[sectionTitle]
+            
+            user = users![indexPath.row]
+        }
+    }
     
 
     func loadUsers(filter: String){
@@ -190,7 +208,6 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
     
     
     //MARK: Search controller functions
-    
     func updateSearchResults(for searchController: UISearchController) {
         
         filterContentForSearchText(searchText: searchController.searchBar.text!)
@@ -208,7 +225,6 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
     
     
     //MARK: Helper functions
-    
     fileprivate func splitDataIntoSection() {
         
         var sectionTitle: String = ""
@@ -228,6 +244,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
             self.allUsersGroupped[firstCarString]?.append(currentUser)
         }
     }
+    
     
     //MARK: UserTableViewCellDelegate
     func didTapAvatarImage(indexPath: IndexPath) {

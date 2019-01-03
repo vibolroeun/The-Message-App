@@ -19,6 +19,7 @@
 		17A2C2CE21DA967500AAC0A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CD21DA967500AAC0A0 /* Constants.swift */; };
 		17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */; };
 		17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */; };
+		17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFF72821DE5E2100BF3C9A /* Recent.swift */; };
 		17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */; };
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
 		17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E021DD00A000B29D08 /* UsersTableViewController.swift */; };
@@ -42,6 +43,7 @@
 		17A2C2CD21DA967500AAC0A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		17BFF72821DE5E2100BF3C9A /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		17E293E021DD00A000B29D08 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				17A2C2CB21DA965C00AAC0A0 /* FUser.swift */,
+				17BFF72821DE5E2100BF3C9A /* Recent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
+				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
 				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
