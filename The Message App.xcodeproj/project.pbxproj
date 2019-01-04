@@ -26,6 +26,7 @@
 		17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E321DD13BB00B29D08 /* ChatsViewController.swift */; };
 		17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */; };
 		17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */; };
+		17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		17E293E321DD13BB00B29D08 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatsTableViewCell.swift; sourceTree = "<group>"; };
 		4B647DBDD0BBB144B4652120 /* Pods-The Message App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.release.xcconfig"; sourceTree = "<group>"; };
 		D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Message_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */,
+				17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
 				1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
+				17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */,
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
 				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,

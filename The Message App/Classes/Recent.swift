@@ -89,11 +89,16 @@ func createRecentItem(userId: String, chatRoomId: String, members: [String], wit
     }else {
         //group
         
-        
+        if avatarOfGroup != nil {
+            
+            recent = [kRECENTID : recentId, kUSERID : userId, kCHARTROOMID : chatRoomId, kMEMBERS : members, kMEMBERSTOPUSH : members, kWITHUSERFULLNAME : withUserUserName, kLASTMESSAGE : "", kCOUNTER : 0, kDATE : date, kTYPE : type, kAVATAR : avatarOfGroup!] as [String : Any]
+            
+        }
         
     }
     
-    
+    //save recent chat
+    localReference.setData(recent)
     
 }
 
