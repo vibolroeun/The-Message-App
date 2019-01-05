@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15A16459D402C4F879814EAC /* Pods_The_Message_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */; };
+		1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706745F21E0A9120096ECF8 /* ChatViewController.swift */; };
 		1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715F2A721D8B1B900F8B20D /* AppDelegate.swift */; };
 		1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715F2A921D8B1B900F8B20D /* WelcomeViewController.swift */; };
 		1715F2AD21D8B1B900F8B20D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1715F2AB21D8B1B900F8B20D /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0B650DDB779C5482D799D2E5 /* Pods-The Message App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.debug.xcconfig"; sourceTree = "<group>"; };
+		1706745F21E0A9120096ECF8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1715F2A421D8B1B900F8B20D /* The Message App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Message App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1715F2A721D8B1B900F8B20D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1715F2A921D8B1B900F8B20D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				17E293E021DD00A000B29D08 /* UsersTableViewController.swift */,
 				17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */,
+				1706745F21E0A9120096ECF8 /* ChatViewController.swift */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			files = (
 				17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */,
 				17A2C2CE21DA967500AAC0A0 /* Constants.swift in Sources */,
+				1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */,
 				1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */,
 				1715F2B021D8B1B900F8B20D /* The_Message_App.xcdatamodeld in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,

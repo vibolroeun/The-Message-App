@@ -449,6 +449,21 @@
             </objects>
             <point key="canvasLocation" x="2684" y="894"/>
         </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="Ud0-6B-Ivp">
+            <objects>
+                <viewController id="1e7-hG-fYz" customClass="JSQMessagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4SM-fY-6WC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BPi-r4-L8c"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCg-sv-CPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="-387"/>
+        </scene>
         <!--Users Table View Controller-->
         <scene sceneID="Ryd-aj-nEB">
             <objects>
@@ -529,7 +544,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epg-KH-jVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4422" y="-387"/>
+            <point key="canvasLocation" x="5609" y="-387"/>
         </scene>
         <!--Profile View Table View Controller-->
         <scene sceneID="oTc-eF-zKn">

@@ -9,14 +9,16 @@
 import UIKit
 import FirebaseFirestore
 
-class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecentChatsTableViewCellDelegate, UISearchResultsUpdating {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var recentChats: [NSDictionary] = []
     var filterChats: [NSDictionary] = []
     
     var recentListener: ListenerRegistration?
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         loadRecentChats()
@@ -34,8 +36,15 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
         
         setTableViewHeader()
+        
     }
 
     //MARK: IBActions
@@ -51,17 +60,94 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return recentChats.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            
+            return filterChats.count
+        } else {
+            
+            return recentChats.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RecentChatsTableViewCell
-        let recent = recentChats[indexPath.row]
+        cell.delegate = self
+        
+        var recent: NSDictionary!
+    
+        if searchController.isActive && searchController.searchBar.text != "" {
+            recent = filterChats[indexPath.row]
+        } else {
+            recent = recentChats[indexPath.row]
+        }
+        
         cell.generateCell(recentChat: recent, indexPath: indexPath)
         
         
         return cell
+    }
+    
+    //MARK: TableViewDelegate functions
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        var tempRecent: NSDictionary!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            tempRecent = filterChats[indexPath.row]
+        } else {
+            tempRecent = recentChats[indexPath.row]
+        }
+        
+        var muteTitle = "Unmute"
+        var mute = false
+        
+        if (tempRecent[kMEMBERSTOPUSH] as! [String]).contains(FUser.currentId()) {
+            muteTitle = "Mute"
+            mute = true
+        }
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+            
+            self.recentChats.remove(at: indexPath.row)
+            deleteRecentChat(recentChatDictionary: tempRecent)
+            self.tableView.reloadData()
+        }
+        
+        let muteAction = UITableViewRowAction(style: .default, title: muteTitle) { (action, indexPath) in
+            
+            print("Mute \(indexPath)")
+            
+        }
+        muteAction.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        
+        return [deleteAction, muteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var recent: NSDictionary!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            recent = filterChats[indexPath.row]
+        } else {
+            recent = recentChats[indexPath.row]
+        }
+        
+        //restart chat
+        restartRecentChat(recent: recent)
+        
+        //show chat view
+        let chatVC = ChatViewController()
+        chatVC.hidesBottomBarWhenPushed = true
+        
+        navigationController?.pushViewController(chatVC, animated: true)
+        
     }
     
     
@@ -115,6 +201,58 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func groupButtonPressed() {
         print("New Group")
         
+    }
+    
+    
+    //MARK: RecentChatsCell Delegate
+    func didTapAvatarImage(indexPath: IndexPath) {
+        
+        var recentChat: NSDictionary!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            recentChat = filterChats[indexPath.row]
+        } else {
+            recentChat = recentChats[indexPath.row]
+        }
+        
+        if recentChat[kTYPE] as! String == kPRIVATE {
+            
+            reference(.User).document(recentChat[kWITHUSERUSERID] as! String).getDocument { (snapshot, error) in
+                
+                guard let snapshot = snapshot else { return }
+                
+                if snapshot.exists {
+                    let userDictionary = snapshot.data()! as NSDictionary
+                    let tempUser = FUser(_dictionary: userDictionary)
+                    self.showUserProfile(user: tempUser)
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    func showUserProfile(user: FUser) {
+        
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    //MARK: Search controller functions
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filterChats = recentChats.filter({ (recentChat) -> Bool in
+            return (recentChat[kWITHUSERFULLNAME] as! String).lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
     }
     
 }
