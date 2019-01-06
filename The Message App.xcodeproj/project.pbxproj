@@ -23,6 +23,8 @@
 		17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFF72821DE5E2100BF3C9A /* Recent.swift */; };
 		17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */; };
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
+		17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE956821E10D000054010A /* OutgoingMessage.swift */; };
+		17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE956A21E11AE20054010A /* IncomingMessage.swift */; };
 		17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E021DD00A000B29D08 /* UsersTableViewController.swift */; };
 		17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E321DD13BB00B29D08 /* ChatsViewController.swift */; };
 		17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */; };
@@ -49,6 +51,8 @@
 		17BFF72821DE5E2100BF3C9A /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
+		17DE956821E10D000054010A /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
+		17DE956A21E11AE20054010A /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		17E293E021DD00A000B29D08 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		17E293E321DD13BB00B29D08 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			children = (
 				17A2C2CB21DA965C00AAC0A0 /* FUser.swift */,
 				17BFF72821DE5E2100BF3C9A /* Recent.swift */,
+				17DE956821E10D000054010A /* OutgoingMessage.swift */,
+				17DE956A21E11AE20054010A /* IncomingMessage.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */,
 				1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */,
 				1715F2B021D8B1B900F8B20D /* The_Message_App.xcdatamodeld in Sources */,
+				17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
@@ -361,6 +368,7 @@
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
 				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
+				17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */,
 				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
 			);
