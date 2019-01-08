@@ -24,6 +24,12 @@ class OutgoingMessage {
         messageDictionary = NSMutableDictionary(objects: [message, pictureLink ,senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kPICTURE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
     }
     
+    //audio message
+    init(message: String, audioLink: String ,senderId: String, senderName: String, date: Date, status: String, type: String) {
+        
+        messageDictionary = NSMutableDictionary(objects: [message, audioLink ,senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kAUDIO as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
+    }
+    
     //video message
     init(message: String, video: String , thumbNail: NSData, senderId: String, senderName: String, date: Date, status: String, type: String) {
         

@@ -23,6 +23,7 @@
 		17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */; };
 		17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */; };
 		17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFF72821DE5E2100BF3C9A /* Recent.swift */; };
+		17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1335521E4EF9C00565F4F /* AudioViewController.swift */; };
 		17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */; };
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
 		17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE956821E10D000054010A /* OutgoingMessage.swift */; };
@@ -55,6 +56,7 @@
 		17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		17A2C2D121DAA9A000AAC0A0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		17BFF72821DE5E2100BF3C9A /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
+		17C1335521E4EF9C00565F4F /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		17DE956821E10D000054010A /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				1736B62D21E285C300BCC7BF /* Camera.swift */,
 				17E8274121E3142700E155C2 /* PhotoMediaItem.swift */,
 				17E8274321E352B000E155C2 /* VideoMessage.swift */,
+				17C1335521E4EF9C00565F4F /* AudioViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
 				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
+				17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */,
 				17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */,
 				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
