@@ -28,6 +28,7 @@
 		17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */; };
 		17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE956821E10D000054010A /* OutgoingMessage.swift */; };
 		17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE956A21E11AE20054010A /* IncomingMessage.swift */; };
+		17E0B47621E7A4A300B20D0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B47521E7A4A300B20D0D /* MapViewController.swift */; };
 		17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E021DD00A000B29D08 /* UsersTableViewController.swift */; };
 		17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E293E321DD13BB00B29D08 /* ChatsViewController.swift */; };
 		17E8274221E3142700E155C2 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E8274121E3142700E155C2 /* PhotoMediaItem.swift */; };
@@ -61,6 +62,7 @@
 		17DDB40E21DB50B800B0343F /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		17DE956821E10D000054010A /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		17DE956A21E11AE20054010A /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		17E0B47521E7A4A300B20D0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		17E293E021DD00A000B29D08 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		17E293E321DD13BB00B29D08 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		17E8274121E3142700E155C2 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				17E293E021DD00A000B29D08 /* UsersTableViewController.swift */,
 				17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */,
 				1706745F21E0A9120096ECF8 /* ChatViewController.swift */,
+				17E0B47521E7A4A300B20D0D /* MapViewController.swift */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */,
 				1715F2B021D8B1B900F8B20D /* The_Message_App.xcdatamodeld in Sources */,
 				17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */,
+				17E0B47621E7A4A300B20D0D /* MapViewController.swift in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
