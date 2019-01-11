@@ -38,11 +38,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     var loadOld = false
     var loadedMessageCount = 0
     
+    var typingCounter = 0
     var messages: [JSQMessage] = []
     var objectMessages: [NSDictionary] = []
     var loadedMessages: [NSDictionary] = []
     var allPictureMessages: [String] = []
     var initialLoadComplete = false
+    
+    var jsqAvatarDictionary: NSMutableDictionary?
+    var avatarImageDictionary: NSMutableDictionary?
+    var showAvatars = true
+    var firstLoad: Bool?
     
     var outgoingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     var incomingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
@@ -85,6 +91,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createTypingObserver()
+        
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
         
@@ -423,6 +431,26 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     func loadMessages(){
         
+        //to update message status
+        updatedListener = reference(.Message).document(FUser.currentId()).collection(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            
+            guard let snapshot = snapshot else {
+                return
+            }
+            
+            if !snapshot.isEmpty {
+                snapshot.documentChanges.forEach({ (diff) in
+                    if diff.type == .modified {
+                        //update local message
+                        self.updateMessage(messageDictionary: diff.document.data() as NSDictionary)
+                    }
+                })
+                
+            }
+            
+        })
+        
+        
         // get last 11 messages
         reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
             
@@ -431,6 +459,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 self.initialLoadComplete = true
                 
                 //listen for new chats
+                self.listenForNewChats()
                 return
             }
             
@@ -549,7 +578,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         let incomingMessage = IncomingMessage(collectionView_: self.collectionView!)
         if (messageDictionary[kSENDERID] as! String) != FUser.currentId() {
+            
             // update message status
+            OutgoingMessage.updateMessage(withId: messageDictionary[kMESSAGEID] as! String, chatRoomId: chatRoomId, memberIds: memberIds)
         }
         
         let message = incomingMessage.createMessage(messageDictionary: messageDictionary, chatRoomId: chatRoomId)
@@ -563,6 +594,22 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return isIncoming(messageDictionary: messageDictionary)
         
     }
+    
+    func updateMessage(messageDictionary: NSDictionary) {
+        
+        for index in 0 ..<  objectMessages.count {
+            let temp = objectMessages[index]
+            
+            if messageDictionary[kMESSAGEID] as! String == temp[kMESSAGEID] as! String {
+                
+                objectMessages[index] = messageDictionary
+                self.collectionView!.reloadData()
+            }
+            
+        }
+        
+    }
+    
     
     //MARK: LoadMoreMessages
     func loadMoreMessages(maxNumber: Int, minNumber: Int) {
@@ -600,6 +647,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     //MARK: IBAction
     @objc func backAction() {
         
+        removeListeners()
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -620,7 +668,58 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
+    //MARK: Typing Indicator
+    func createTypingObserver() {
+        
+        typingListener = reference(.Typing).document(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            
+            guard let snapshot = snapshot else { return }
+            
+            if snapshot.exists {
+                for data in snapshot.data()! {
+                    if data.key != FUser.currentId() {
+                        let typing = data.value as! Bool
+                        self.showTypingIndicator = typing
+                        
+                        if typing {
+                            self.scrollToBottom(animated: true)
+                        }
+                    }
+                    
+                }
+            } else {
+                reference(.Typing).document(self.chatRoomId).setData([FUser.currentId() : false])
+            }
+        })
+    }
     
+    func typingCounterStart() {
+        typingCounter += 1
+        typingCounterSave(typing: true)
+        self.perform(#selector(self.typingCounterStop), with: nil, afterDelay: 2.0)
+    }
+    
+    @objc func typingCounterStop() {
+        typingCounter -= 1
+        if typingCounter == 0 {
+            typingCounterSave(typing: false)
+        }
+        
+    }
+    
+    func typingCounterSave(typing: Bool) {
+        
+        reference(.Typing).document(chatRoomId).updateData([FUser.currentId() : typing])
+    }
+    
+    //MARK: UITextViewDelegate
+    
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        typingCounterStart()
+        
+        return true
+    }
     
     
     //MARK: CustomSendButton
@@ -760,6 +859,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         } else {
             return true
             
+        }
+    }
+    
+    func removeListeners() {
+        
+        if typingListener != nil {
+            typingListener!.remove()
+        }
+        if newChatListener != nil {
+            newChatListener!.remove()
+        }
+        if updatedListener != nil {
+            updatedListener!.remove()
         }
     }
     
