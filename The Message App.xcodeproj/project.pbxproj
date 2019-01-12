@@ -18,6 +18,8 @@
 		1715F2BD21D8B45000F8B20D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1715F2BC21D8B45000F8B20D /* GoogleService-Info.plist */; };
 		1736B62E21E285C300BCC7BF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1736B62D21E285C300BCC7BF /* Camera.swift */; };
 		1736B63021E28BD900BCC7BF /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1736B62F21E28BD900BCC7BF /* Downloads.swift */; };
+		174ECF4E21E8848700FC625A /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ECF4D21E8848700FC625A /* PicturesCollectionViewController.swift */; };
+		174ECF5021E8854100FC625A /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ECF4F21E8854100FC625A /* PictureCollectionViewCell.swift */; };
 		17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CB21DA965C00AAC0A0 /* FUser.swift */; };
 		17A2C2CE21DA967500AAC0A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CD21DA967500AAC0A0 /* Constants.swift */; };
 		17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */; };
@@ -52,6 +54,8 @@
 		1715F2BC21D8B45000F8B20D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1736B62D21E285C300BCC7BF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		1736B62F21E28BD900BCC7BF /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
+		174ECF4D21E8848700FC625A /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
+		174ECF4F21E8854100FC625A /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		17A2C2CB21DA965C00AAC0A0 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		17A2C2CD21DA967500AAC0A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17A2C2CF21DAA7CC00AAC0A0 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				17D0119F21DDE57D00B57DBA /* ProfileViewTableViewController.swift */,
 				1706745F21E0A9120096ECF8 /* ChatViewController.swift */,
 				17E0B47521E7A4A300B20D0D /* MapViewController.swift */,
+				174ECF4D21E8848700FC625A /* PicturesCollectionViewController.swift */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			children = (
 				17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */,
 				17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */,
+				174ECF4F21E8854100FC625A /* PictureCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
+				174ECF4E21E8848700FC625A /* PicturesCollectionViewController.swift in Sources */,
 				1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17E8274221E3142700E155C2 /* PhotoMediaItem.swift in Sources */,
@@ -391,6 +398,7 @@
 				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
 				17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */,
+				174ECF5021E8854100FC625A /* PictureCollectionViewCell.swift in Sources */,
 				17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */,
 				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,

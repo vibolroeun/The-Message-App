@@ -137,8 +137,6 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    
-    
     func scaleImageToSize(newSize: CGSize) -> UIImage {
         var scaledImageRect = CGRect.zero
         
