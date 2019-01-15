@@ -23,7 +23,7 @@ public let kFILEREFERENCE = "gs://the-message-app-908a4.appspot.com/"
 public let kONESIGNALAPPID = ""
 public let kSINCHKEY = ""
 public let kSINCHSECRET = ""
-public let kAPPURL = ""
+public let kAPPURL = "App Link"
 
 //Firebase Headers
 public let kUSER_PATH = "User"
