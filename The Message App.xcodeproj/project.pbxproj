@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15A16459D402C4F879814EAC /* Pods_The_Message_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */; };
+		17031BFC21EF84AD005D6B79 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */; };
+		17031BFE21EF8C26005D6B79 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17031BFD21EF8C26005D6B79 /* CountryCode.swift */; };
 		1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706745F21E0A9120096ECF8 /* ChatViewController.swift */; };
 		170CE5FA21ED976A00B475FF /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CE5F921ED976A00B475FF /* BlockViewController.swift */; };
 		170CE5FC21EDA6E500B475FF /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		0B650DDB779C5482D799D2E5 /* Pods-The Message App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.debug.xcconfig"; sourceTree = "<group>"; };
+		17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		17031BFD21EF8C26005D6B79 /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryCode.swift; path = "../../../../../Downloads/ChatAssets/READY CODE/CountryCode.swift"; sourceTree = "<group>"; };
 		1706745F21E0A9120096ECF8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		170CE5F921ED976A00B475FF /* BlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17031BFA21EF8447005D6B79 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */,
+				170CE5F921ED976A00B475FF /* BlockViewController.swift */,
+				170CE5FF21EDAE8600B475FF /* T_CViewController.swift */,
+				170CE60121EDB14600B475FF /* EditProfileTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		1715F29B21D8B1B900F8B20D = {
 			isa = PBXGroup;
 			children = (
@@ -164,10 +179,8 @@
 				1706745F21E0A9120096ECF8 /* ChatViewController.swift */,
 				17E0B47521E7A4A300B20D0D /* MapViewController.swift */,
 				174ECF4D21E8848700FC625A /* PicturesCollectionViewController.swift */,
-				170CE5F921ED976A00B475FF /* BlockViewController.swift */,
-				170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */,
-				170CE5FF21EDAE8600B475FF /* T_CViewController.swift */,
-				170CE60121EDB14600B475FF /* EditProfileTableViewController.swift */,
+				17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */,
+				17031BFA21EF8447005D6B79 /* Settings */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -186,6 +199,7 @@
 		17DDB41121DB510D00B0343F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17031BFD21EF8C26005D6B79 /* CountryCode.swift */,
 				17A2C2CB21DA965C00AAC0A0 /* FUser.swift */,
 				17BFF72821DE5E2100BF3C9A /* Recent.swift */,
 				17DE956821E10D000054010A /* OutgoingMessage.swift */,
@@ -403,6 +417,7 @@
 				17DE956921E10D000054010A /* OutgoingMessage.swift in Sources */,
 				170CE60021EDAE8600B475FF /* T_CViewController.swift in Sources */,
 				17E0B47621E7A4A300B20D0D /* MapViewController.swift in Sources */,
+				17031BFE21EF8C26005D6B79 /* CountryCode.swift in Sources */,
 				170CE60221EDB14600B475FF /* EditProfileTableViewController.swift in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
@@ -420,6 +435,7 @@
 				17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */,
 				174ECF5021E8854100FC625A /* PictureCollectionViewCell.swift in Sources */,
 				17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */,
+				17031BFC21EF84AD005D6B79 /* ContactTableViewController.swift in Sources */,
 				17D011A021DDE57D00B57DBA /* ProfileViewTableViewController.swift in Sources */,
 				17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */,
 				17E8274421E352B000E155C2 /* VideoMessage.swift in Sources */,
@@ -573,6 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE649726B2;
 				INFOPLIST_FILE = "The Message App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,6 +609,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE649726B2;
 				INFOPLIST_FILE = "The Message App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
