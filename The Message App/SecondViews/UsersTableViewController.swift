@@ -254,8 +254,10 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
                 
                 sectionTitle = firstCarString
                 self.allUsersGroupped[sectionTitle] = []
-                self.sectionTitleList.append(sectionTitle)
                 
+                if !sectionTitleList.contains(sectionTitle) {
+                    self.sectionTitleList.append(sectionTitle)
+                }
             }
             
             self.allUsersGroupped[firstCarString]?.append(currentUser)

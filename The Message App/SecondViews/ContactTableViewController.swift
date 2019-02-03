@@ -70,7 +70,7 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
         //to remove empty cell lines
         tableView.tableFooterView = UIView()
         
-        //        loadUsers()
+        loadUsers()
     }
     
     override func viewDidLoad() {
@@ -84,7 +84,7 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         
-        //        setupButtons()
+        setupButtons()
     }
     
     //MARK: TableViewDataSource
@@ -165,9 +165,129 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        let sectionTitle = self.sectionTitleList[indexPath.section]
+        let userToChat : FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            userToChat = filteredMatchedUsers[indexPath.row]
+        }else {
+            let users = self.allUsersGrouped[sectionTitle]
+            
+            userToChat = users![indexPath.row]
+        }
+        
+        if !isGroup {
+            // one to one chat
+            if !checkBlockedStatus(withUser: userToChat) {
+                let chatVC = ChatViewController()
+                
+                chatVC.titleName = userToChat.firstname
+                chatVC.memberIds = [FUser.currentId(), userToChat.objectId]
+                chatVC.membersToPush = [FUser.currentId(), userToChat.objectId]
+                chatVC.chatRoomId = startPrivateChat(user1: FUser.currentUser()!, user2: userToChat)
+                chatVC.isGroup = false
+                chatVC.hidesBottomBarWhenPushed = true
+                
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            } else {
+                ProgressHUD.showError("This user is not available for chat")
+            }
+            
+        } else {
+            //group chat
+            
+            
+            //checkmarks
+            if let cell = tableView.cellForRow(at: indexPath) {
+                if cell.accessoryType == .checkmark {
+                    cell.accessoryType = .none
+                } else {
+                    cell.accessoryType = .checkmark
+                }
+            }
+            
+            //add/remove user from the array
+            let selected = memberIdsOfGroupChat.contains(userToChat.objectId)
+            
+            if selected {
+                let objectIndex = memberIdsOfGroupChat.index(of: userToChat.objectId)
+                
+                memberIdsOfGroupChat.remove(at: objectIndex!)
+                membersOfGroupChat.remove(at: objectIndex!)
+            } else {
+                memberIdsOfGroupChat.append(userToChat.objectId)
+                membersOfGroupChat.append(userToChat)
+            }
+            
+            self.navigationItem.rightBarButtonItem?.isEnabled = memberIdsOfGroupChat.count > 0
+            
+        }
         
     }
     
+    //MARK: IBActions
+    
+    @objc func nextButtonPressed() {
+        
+        let newGroupVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newGroupView") as! NewGroupViewController
+        
+        newGroupVC.memberIds = memberIdsOfGroupChat
+        newGroupVC.allMembers = membersOfGroupChat
+        
+        self.navigationController?.pushViewController(newGroupVC, animated: true)
+    }
+    
+    @objc func inviteButtonPressed() {
+        
+        let text = "Hey! lets chat on iChat \(kAPPURL)"
+        let objctsToShare:[Any] = [text]
+        
+        let activityViewController = UIActivityViewController(activityItems: objctsToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.setValue("lets chat on iCHat", forKey: "subject")
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @objc func searchNearByButtonPressed() {
+        let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
+        
+        self.navigationController?.pushViewController(userVC, animated: true)
+        
+    }
+    
+    //MARK: LoadUsers
+    
+    func loadUsers() {
+        ProgressHUD.show()
+        
+        reference(.User).order(by: kFIRSTNAME, descending: false).getDocuments { (snapshot, error) in
+            
+            guard let snapshot = snapshot else {
+                ProgressHUD.dismiss()
+                return
+            }
+            
+            if !snapshot.isEmpty {
+                self.matchedUsers = []
+                self.users.removeAll()
+                
+                for userDictionary in snapshot.documents {
+                    let userDictionary = userDictionary.data() as NSDictionary
+                    let fUser = FUser(_dictionary: userDictionary)
+                    
+                    if fUser.objectId != FUser.currentId() {
+                        self.users.append(fUser)
+                    }
+                }
+                ProgressHUD.dismiss()
+                self.tableView.reloadData()
+            }
+            ProgressHUD.dismiss()
+            self.compareUsers()
+        }
+    }
     
     
     func compareUsers() {
@@ -287,7 +407,10 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
                 self.allUsersGrouped[sectionTitle] = []
                 
                 // append title within section title list
-                self.sectionTitleList.append(sectionTitle)
+                if !sectionTitleList.contains(sectionTitle) {
+                    self.sectionTitleList.append(sectionTitle)
+                }
+                
             }
             
             // add record to the section
@@ -299,13 +422,16 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
     //MARK: Search controller functions
     
     func filteredContentForSearchText(searchText: String, scope: String = "All") {
-        
-        
+        filteredMatchedUsers = matchedUsers.filter({ (user) -> Bool in
+            
+            return user.firstname.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        
+        filteredContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
 
@@ -313,6 +439,41 @@ class ContactTableViewController: UITableViewController, UISearchResultsUpdating
     
     func didTapAvatarImage(indexPath: IndexPath) {
         
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        var user: FUser!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredMatchedUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.row]
+            let users = self.allUsersGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
+    
+    //MARK: Helpers
+    
+    func setupButtons() {
+        
+        if isGroup {
+            // for group chat
+            let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.nextButtonPressed))
+            self.navigationItem.rightBarButtonItem = nextButton
+            self.navigationItem.rightBarButtonItems!.first!.isEnabled = false
+            
+        } else {
+            // for one on one chat
+            let inviteButton = UIBarButtonItem(image: UIImage(named: "invite"), style: .plain, target: self, action: #selector(self.inviteButtonPressed))
+            let searchButton = UIBarButtonItem(image: UIImage(named: "nearMe"), style: .plain, target: self, action: #selector(self.searchNearByButtonPressed))
+            
+            self.navigationItem.rightBarButtonItems = [inviteButton, searchButton]
+        }
+    }
+    
+    
 
 }
