@@ -106,6 +106,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
         
+        if isGroup! {
+            getCurrentGroup(withId: chatRoomId)
+        }
+        
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
@@ -123,7 +127,6 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         constraint.priority = UILayoutPriority(rawValue: 1000)
         
         self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
         //end of iphone x fix
         
         
@@ -733,7 +736,12 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     @objc func showGroup() {
-        print("show group")
+        
+        let groupVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groupView") as! GroupViewController
+        
+        groupVC.group = group!
+        self.navigationController?.pushViewController(groupVC, animated: true)
+        
     }
     
     @objc func showUserProfile() {
@@ -894,6 +902,22 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
     }
     
+    
+    func setUIForGroupChat() {
+        
+        imageFromData(pictureData: (group![kAVATAR] as! String)) { (image) in
+            
+            if image != nil {
+                avatarButton.setImage(image!.circleMasked, for: .normal)
+            }
+        }
+        titleLabel.text = titleName
+        subLabel.text = ""
+        
+    }
+    
+    
+    
     //MARK: UIImagePickerController delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -1047,6 +1071,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         currentDateFormat.dateFormat = "HH:mm"
         
         return currentDateFormat.string(from: date!)
+    }
+    
+    func getCurrentGroup(withId: String) {
+        
+        reference(.Group).document(withId).getDocument { (snapshot, error) in
+            
+            guard let snapshot = snapshot else { return }
+            
+            if snapshot.exists {
+                self.group = snapshot.data() as! NSDictionary
+                self.setUIForGroupChat()
+            }
+            
+        }
     }
 
 }

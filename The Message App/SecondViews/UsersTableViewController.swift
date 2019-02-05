@@ -92,6 +92,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
     }
     
     //MARK: TableView Delegate
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -242,6 +243,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
     
     
     //MARK: Helper functions
+    
     fileprivate func splitDataIntoSection() {
         
         var sectionTitle: String = ""

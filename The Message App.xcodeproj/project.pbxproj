@@ -46,6 +46,9 @@
 		17E8274421E352B000E155C2 /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E8274321E352B000E155C2 /* VideoMessage.swift */; };
 		17F0CDA621DCA5C20034CA47 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */; };
 		17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */; };
+		17F0D1E7220958400061EE04 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0D1E6220958400061EE04 /* Group.swift */; };
+		17F0D1E9220972400061EE04 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0D1E8220972400061EE04 /* GroupViewController.swift */; };
+		17F0D1EB2209783D0061EE04 /* InviteUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0D1EA2209783D0061EE04 /* InviteUsersTableViewController.swift */; };
 		17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		17E8274321E352B000E155C2 /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		17F0CDA821DCAC720034CA47 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		17F0D1E6220958400061EE04 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		17F0D1E8220972400061EE04 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		17F0D1EA2209783D0061EE04 /* InviteUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUsersTableViewController.swift; sourceTree = "<group>"; };
 		17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatsTableViewCell.swift; sourceTree = "<group>"; };
 		4B647DBDD0BBB144B4652120 /* Pods-The Message App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.release.xcconfig"; sourceTree = "<group>"; };
 		D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Message_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +192,8 @@
 				17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */,
 				1726A5472206D24F00567E6D /* NewGroupViewController.swift */,
 				17031BFA21EF8447005D6B79 /* Settings */,
+				17F0D1E8220972400061EE04 /* GroupViewController.swift */,
+				17F0D1EA2209783D0061EE04 /* InviteUsersTableViewController.swift */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				17E8274121E3142700E155C2 /* PhotoMediaItem.swift */,
 				17E8274321E352B000E155C2 /* VideoMessage.swift */,
 				17C1335521E4EF9C00565F4F /* AudioViewController.swift */,
+				17F0D1E6220958400061EE04 /* Group.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -429,16 +438,19 @@
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				1726A5482206D24F00567E6D /* NewGroupViewController.swift in Sources */,
 				17DDB40F21DB50B800B0343F /* FinishRegistrationViewController.swift in Sources */,
+				17F0D1EB2209783D0061EE04 /* InviteUsersTableViewController.swift in Sources */,
 				174ECF4E21E8848700FC625A /* PicturesCollectionViewController.swift in Sources */,
 				1715F2A821D8B1B900F8B20D /* AppDelegate.swift in Sources */,
 				1726A5462206CF0E00567E6D /* GroupMemberCollectionViewCell.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17E8274221E3142700E155C2 /* PhotoMediaItem.swift in Sources */,
 				17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */,
+				17F0D1E9220972400061EE04 /* GroupViewController.swift in Sources */,
 				1736B62E21E285C300BCC7BF /* Camera.swift in Sources */,
 				17A2C2D021DAA7CC00AAC0A0 /* CollectionReference.swift in Sources */,
 				17BFF72921DE5E2100BF3C9A /* Recent.swift in Sources */,
 				170CE5FA21ED976A00B475FF /* BlockViewController.swift in Sources */,
+				17F0D1E7220958400061EE04 /* Group.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
 				17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */,
 				174ECF5021E8854100FC625A /* PictureCollectionViewCell.swift in Sources */,

@@ -52,6 +52,41 @@ class NewGroupViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @objc func createButtonPressed(_ sender: Any) {
         
+        if groupSubjectTextField.text != "" {
+            
+            memberIds.append(FUser.currentId())
+            let avatarData = UIImage(named: "groupIcon")!.jpegData(compressionQuality: 0.7)!
+            var avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            
+            if groupIcon != nil {
+                let avatarData = groupIcon!.jpegData(compressionQuality: 0.7)!
+                avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            }
+            let groupId = UUID().uuidString
+            
+            //create Group
+            let group = Group(groupId: groupId, subject: groupSubjectTextField.text!, ownerId: FUser.currentId(), members: memberIds, avatar: avatar)
+            
+            group.saveGroup()
+            
+            startGroupChat(group: group)
+            
+            // create group recent
+            let chatVC = ChatViewController()
+            chatVC.titleName = group.groupDictionary[kNAME] as? String
+            chatVC.memberIds = group.groupDictionary[kMEMBERS] as? [String]
+            chatVC.membersToPush = group.groupDictionary[kMEMBERS] as? [String]
+            
+            chatVC.chatRoomId = groupId
+            chatVC.isGroup = true
+            chatVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(chatVC, animated: true)
+            
+            
+            
+        } else {
+            ProgressHUD.showError("Subject is required!")
+        }
         
     }
     
