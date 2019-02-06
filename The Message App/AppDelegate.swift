@@ -47,6 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         
+        if FUser.currentUser() != nil {
+            updateCurrentUserInFirestore(withValues: [kISONLINE: false]) { (success) in
+                
+                
+            }
+        }
+        
         locationManagerStop()
     }
 
@@ -55,6 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        if FUser.currentUser() != nil {
+            updateCurrentUserInFirestore(withValues: [kISONLINE: true]) { (success) in
+                
+            }
+        }
         
         locationManagerStart()
     }

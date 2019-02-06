@@ -10,6 +10,9 @@
 		15A16459D402C4F879814EAC /* Pods_The_Message_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */; };
 		17031BFC21EF84AD005D6B79 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */; };
 		17031BFE21EF8C26005D6B79 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17031BFD21EF8C26005D6B79 /* CountryCode.swift */; };
+		1704B1E5220B1FAB00E2E16B /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704B1E4220B1FAB00E2E16B /* CallTableViewCell.swift */; };
+		1704B1E7220B20BA00E2E16B /* CallClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704B1E6220B20BA00E2E16B /* CallClass.swift */; };
+		1704B1E9220B33FD00E2E16B /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704B1E8220B33FD00E2E16B /* CallTableViewController.swift */; };
 		1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706745F21E0A9120096ECF8 /* ChatViewController.swift */; };
 		170CE5FA21ED976A00B475FF /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CE5F921ED976A00B475FF /* BlockViewController.swift */; };
 		170CE5FC21EDA6E500B475FF /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */; };
@@ -58,6 +61,9 @@
 		0B650DDB779C5482D799D2E5 /* Pods-The Message App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.debug.xcconfig"; sourceTree = "<group>"; };
 		17031BFB21EF84AD005D6B79 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		17031BFD21EF8C26005D6B79 /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryCode.swift; path = "../../../../../Downloads/ChatAssets/READY CODE/CountryCode.swift"; sourceTree = "<group>"; };
+		1704B1E4220B1FAB00E2E16B /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
+		1704B1E6220B20BA00E2E16B /* CallClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallClass.swift; sourceTree = "<group>"; };
+		1704B1E8220B33FD00E2E16B /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
 		1706745F21E0A9120096ECF8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		170CE5F921ED976A00B475FF /* BlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		170CE5FB21EDA6E500B475FF /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 			children = (
 				17F0CDA521DCA5C20034CA47 /* SettingsTableViewController.swift */,
 				17E293E321DD13BB00B29D08 /* ChatsViewController.swift */,
+				1704B1E8220B33FD00E2E16B /* CallTableViewController.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 				17C1335521E4EF9C00565F4F /* AudioViewController.swift */,
 				17F0D1E6220958400061EE04 /* Group.swift */,
 				17F90E99220A80150002B07D /* Encryption.swift */,
+				1704B1E6220B20BA00E2E16B /* CallClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				174ECF4F21E8854100FC625A /* PictureCollectionViewCell.swift */,
 				170CE5FD21EDA72300B475FF /* BackgroundCollectionViewCell.swift */,
 				1726A5452206CF0E00567E6D /* GroupMemberCollectionViewCell.swift */,
+				1704B1E4220B1FAB00E2E16B /* CallTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -446,6 +455,7 @@
 				17E0B47621E7A4A300B20D0D /* MapViewController.swift in Sources */,
 				17031BFE21EF8C26005D6B79 /* CountryCode.swift in Sources */,
 				170CE60221EDB14600B475FF /* EditProfileTableViewController.swift in Sources */,
+				1704B1E7220B20BA00E2E16B /* CallClass.swift in Sources */,
 				17F0CDA921DCAC720034CA47 /* UsersTableViewCell.swift in Sources */,
 				17E293E121DD00A000B29D08 /* UsersTableViewController.swift in Sources */,
 				1726A5482206D24F00567E6D /* NewGroupViewController.swift in Sources */,
@@ -456,6 +466,7 @@
 				1726A5462206CF0E00567E6D /* GroupMemberCollectionViewCell.swift in Sources */,
 				17A2C2CC21DA965C00AAC0A0 /* FUser.swift in Sources */,
 				17E8274221E3142700E155C2 /* PhotoMediaItem.swift in Sources */,
+				1704B1E9220B33FD00E2E16B /* CallTableViewController.swift in Sources */,
 				17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */,
 				17F0D1E9220972400061EE04 /* GroupViewController.swift in Sources */,
 				1736B62E21E285C300BCC7BF /* Camera.swift in Sources */,
@@ -465,6 +476,7 @@
 				17F0D1E7220958400061EE04 /* Group.swift in Sources */,
 				17E293E421DD13BB00B29D08 /* ChatsViewController.swift in Sources */,
 				17C1335621E4EF9C00565F4F /* AudioViewController.swift in Sources */,
+				1704B1E5220B1FAB00E2E16B /* CallTableViewCell.swift in Sources */,
 				174ECF5021E8854100FC625A /* PictureCollectionViewCell.swift in Sources */,
 				17DE956B21E11AE20054010A /* IncomingMessage.swift in Sources */,
 				17031BFC21EF84AD005D6B79 /* ContactTableViewController.swift in Sources */,
