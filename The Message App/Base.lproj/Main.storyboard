@@ -171,10 +171,14 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="wFW-nU-l7T">
                                 <rect key="frame" x="137.5" y="83" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ZeZ-hb-ANv"/>
                                     <constraint firstAttribute="width" constant="100" id="w9S-RV-8Of"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nw0-cK-U3w" appends="YES" id="S9f-nz-8RK"/>
+                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-lb-zNt">
                                 <rect key="frame" x="8" y="193" width="359" height="190"/>
@@ -235,6 +239,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzp-Ic-e9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nw0-cK-U3w">
+                    <connections>
+                        <action selector="avatarImageTap:" destination="6vi-Tt-t11" id="cmq-Ge-wjO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="962" y="134"/>
         </scene>

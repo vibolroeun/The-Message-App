@@ -8,9 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class NewGroupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GroupMemberCollectionViewCellDelegate {
-
+class NewGroupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GroupMemberCollectionViewCellDelegate, ImagePickerDelegate {
     
     @IBOutlet weak var editAvatarButtonOutlet: UIButton!
     @IBOutlet weak var groupIconImageView: UIImageView!
@@ -59,7 +59,7 @@ class NewGroupViewController: UIViewController, UICollectionViewDelegate, UIColl
             var avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             
             if groupIcon != nil {
-                let avatarData = groupIcon!.jpegData(compressionQuality: 0.7)!
+                let avatarData = groupIcon!.jpegData(compressionQuality: 0.4)!
                 avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             }
             let groupId = UUID().uuidString
@@ -114,7 +114,12 @@ class NewGroupViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let optionMenu = UIAlertController(title: "Choose group Icon", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
-            print("camera")
+            
+            let imagePicker = ImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.imageLimit = 1
+            
+            self.present(imagePicker, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
@@ -157,6 +162,28 @@ class NewGroupViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(self.createButtonPressed))]
         
         self.navigationItem.rightBarButtonItem?.isEnabled = allMembers.count > 0
+    }
+    
+    //MARK: ImagePickerControllerDelegate
+    
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        
+        if images.count > 0 {
+            self.groupIcon = images.first!
+            self.groupIconImageView.image = self.groupIcon!.circleMasked
+            self.editAvatarButtonOutlet.isHidden = false
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
