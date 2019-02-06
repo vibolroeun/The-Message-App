@@ -417,25 +417,33 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     
     //MARK: Send Messages
+    
     func sendMessage(text: String?, date: Date, picture: UIImage?, location: String?, video: NSURL?, audio: String?) {
         var outgoingMessage: OutgoingMessage?
         let currentUser = FUser.currentUser()!
         
         //text message
+        
         if let text = text {
             
-            outgoingMessage = OutgoingMessage(message: text, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
+            // encrypt text
+            let encryptedText = Encryption.encryptText(chatRoomId: chatRoomId, message: text)
+            
+            outgoingMessage = OutgoingMessage(message: encryptedText, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
         }
         
         //picture message
+        
         if let pic = picture {
+            
             uploadImage(image: pic, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
                 
                 if imageLink != nil {
                     
-                    let text = "[\(kPICTURE)]"
+                    // encrypt text
+                    let encryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kPICTURE)]")
                     
-                    outgoingMessage = OutgoingMessage(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
+                    outgoingMessage = OutgoingMessage(message: encryptedText, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
                     
@@ -446,6 +454,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         //send message
+        
         if let video = video {
             
             let videoData = NSData(contentsOfFile: video.path!)
@@ -455,8 +464,11 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             uploadVideo(video: videoData!, chatRoomId: chatRoomId, view: self.navigationController!.view) { (videoLink) in
                 
                 if videoLink != nil {
-                    let text = "[\(kVIDEO)]"
-                    outgoingMessage = OutgoingMessage(message: text, video: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
+                    
+                    // encrypt text
+                    let encryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kVIDEO)]")
+                    
+                    outgoingMessage = OutgoingMessage(message: encryptedText, video: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
                     
@@ -469,14 +481,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         //send audio
+        
         if let audioPath = audio {
             uploadAudio(autioPath: audioPath, chatRoomId: chatRoomId, view: self.navigationController!.view) { (audioLink) in
                 
                 if audioLink != nil {
                     
-                    let text = "[\(kAUDIO)]"
-                    
-                    outgoingMessage = OutgoingMessage(message: text, audioLink: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELETED, type: kAUDIO)
+                    // encrypt text
+                    let encryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kAUDIO)]")
+                 
+                    outgoingMessage = OutgoingMessage(message: encryptedText, audioLink: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELETED, type: kAUDIO)
                     
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
@@ -489,15 +503,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         //send location
+        
         if location != nil {
             
             let lat: NSNumber = NSNumber(value: appDelegate.coordinates!.latitude)
             let long: NSNumber = NSNumber(value: appDelegate.coordinates!.longitude)
             
-            let text = "[\(kLOCATION)]"
-            outgoingMessage = OutgoingMessage(message: text, latitude: lat, longitude: long, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
+            // encrypt text
+            let encryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kLOCATION)]")
+            
+            outgoingMessage = OutgoingMessage(message: encryptedText, latitude: lat, longitude: long, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
         }
-        
         
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()

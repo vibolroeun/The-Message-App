@@ -50,6 +50,8 @@
 		17F0D1E9220972400061EE04 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0D1E8220972400061EE04 /* GroupViewController.swift */; };
 		17F0D1EB2209783D0061EE04 /* InviteUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0D1EA2209783D0061EE04 /* InviteUsersTableViewController.swift */; };
 		17F4523C21DFA03500B183E4 /* RecentChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */; };
+		17F90E9A220A80150002B07D /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F90E99220A80150002B07D /* Encryption.swift */; };
+		17F90E9C220A8C670002B07D /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F90E9B220A8C670002B07D /* ImagePicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		17F0D1E8220972400061EE04 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		17F0D1EA2209783D0061EE04 /* InviteUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUsersTableViewController.swift; sourceTree = "<group>"; };
 		17F4523B21DFA03500B183E4 /* RecentChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatsTableViewCell.swift; sourceTree = "<group>"; };
+		17F90E99220A80150002B07D /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		17F90E9B220A8C670002B07D /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B647DBDD0BBB144B4652120 /* Pods-The Message App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Message App.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Message App/Pods-The Message App.release.xcconfig"; sourceTree = "<group>"; };
 		D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Message_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F90E9C220A8C670002B07D /* ImagePicker.framework in Frameworks */,
 				15A16459D402C4F879814EAC /* Pods_The_Message_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +227,7 @@
 				17E8274321E352B000E155C2 /* VideoMessage.swift */,
 				17C1335521E4EF9C00565F4F /* AudioViewController.swift */,
 				17F0D1E6220958400061EE04 /* Group.swift */,
+				17F90E99220A80150002B07D /* Encryption.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 		1F3A0E38E3F3470A0388F1D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17F90E9B220A8C670002B07D /* ImagePicker.framework */,
 				D47D0FAA73C355F45FEE7ECA /* Pods_The_Message_App.framework */,
 			);
 			name = Frameworks;
@@ -375,11 +382,13 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/IQAudioRecorderController/IQAudioRecorderController.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/SCSiriWaveformView/SCSiriWaveformView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -396,11 +405,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQAudioRecorderController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSiriWaveformView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -424,6 +435,7 @@
 				17A2C2D221DAA9A000AAC0A0 /* HelperFunctions.swift in Sources */,
 				1736B63021E28BD900BCC7BF /* Downloads.swift in Sources */,
 				170CE5FC21EDA6E500B475FF /* BackgroundCollectionViewController.swift in Sources */,
+				17F90E9A220A80150002B07D /* Encryption.swift in Sources */,
 				17A2C2CE21DA967500AAC0A0 /* Constants.swift in Sources */,
 				1706746021E0A9120096ECF8 /* ChatViewController.swift in Sources */,
 				1715F2AA21D8B1B900F8B20D /* WelcomeViewController.swift in Sources */,

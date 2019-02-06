@@ -42,15 +42,19 @@ class RecentChatsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
     }
     
     //MARK: Generate Cell
+    
     func generateCell(recentChat: NSDictionary, indexPath: IndexPath) {
         
         self.indexPath = indexPath
         self.nameLabel.text = recentChat[kWITHUSERFULLNAME] as? String
-        self.lastMessageLabel.text = recentChat[kLASTMESSAGE] as? String
+        
+        //decrypt last message
+        let decryptedText = Encryption.decryptText(chatRoomId: recentChat[kCHARTROOMID] as! String, encryptedMessage: recentChat[kLASTMESSAGE] as! String)
+        
+        self.lastMessageLabel.text = decryptedText
         self.messageCounterLabel.text = recentChat[kCOUNTER] as? String
         
         if let avatarString = recentChat[kAVATAR] {
